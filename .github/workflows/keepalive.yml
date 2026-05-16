@@ -1,0 +1,10 @@
+name: Keep Render Alive
+on:
+  schedule:
+    - cron: '*/10 * * * *'  # 每10分钟运行一次，防Render休眠
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping my blog
+        run: curl -s https://my-halo-blog.onrender.com > /dev/null 2>&1
